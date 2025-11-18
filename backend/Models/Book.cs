@@ -1,0 +1,14 @@
+﻿namespace Backend.Models
+{
+    public class Book
+    {
+        public int Id { get; set; }              // PK
+        public string Title { get; set; } = null!;
+        public string Author { get; set; } = null!;
+        public int Year { get; set; }
+        public string Publisher { get; set; } = null!;
+        public int Pages { get; set; }
+        public string Category { get; set; } = null!;
+        public string? Isbn { get; set; }       // opcional
+    }
+}

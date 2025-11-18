@@ -1,0 +1,279 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "backend",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Books": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BookReadDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BookReadDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BookReadDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Books/{id}": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "operationId": "GetBookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookReadDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookReadDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookReadDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Books"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Books"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BookCreateDto": {
+        "required": [
+          "author",
+          "category",
+          "publisher",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string"
+          },
+          "author": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "year": {
+            "maximum": 3000,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "publisher": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "pages": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "isbn": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookReadDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "author": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "publisher": {
+            "type": "string",
+            "nullable": true
+          },
+          "pages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "isbn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

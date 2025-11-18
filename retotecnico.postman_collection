@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "030d0da8-45c1-4f0a-81a7-437b09954321",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22673322"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/books/4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/books",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Clean Code\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"year\": 2008,\r\n  \"publisher\": \"Prentice Hall\",\r\n  \"pages\": 464,\r\n  \"category\": \"Programming\",\r\n  \"isbn\": \"9780132350884\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/books/4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Clean Code new version\",\r\n  \"author\": \"Robert C. Martin\",\r\n  \"year\": 2008,\r\n  \"publisher\": \"Prentice Hall\",\r\n  \"pages\": 464,\r\n  \"category\": \"Programming\",\r\n  \"isbn\": \"9780132350884\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/books/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/books/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
